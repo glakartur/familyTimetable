@@ -1,0 +1,16 @@
+domain/__pycache__/PDFPrinter.cpython-38.pyc
+domain/__pycache__/pdfPrinter.cpython-38.pyc
+domain/__pycache__/printer.cpython-38.pyc
+domain/__pycache__/Size.cpython-38.pyc
+domain/__pycache__/SourceDataParser.cpython-38.pyc
+domain/__pycache__/sourceDataReader.cpython-38.pyc
+domain/__pycache__/Timeline.cpython-38.pyc
+domain/__pycache__/timeline.cpython-38.pyc
+.vscode/launch.json
+.vscode/settings.json
+.ipynb_checkpoints/t-370a1431-7a1f-48d1-a8e8-4ccdd498954c-checkpoint.ipynb
+.ipynb_checkpoints/t-d3bbc99d-30b5-434a-9698-c2744c787594-checkpoint.ipynb
+.ipynb_checkpoints/t-fedb017a-711b-416b-96d6-caec36f1a4be-checkpoint.ipynb
+t-370a1431-7a1f-48d1-a8e8-4ccdd498954c.ipynb
+t-d3bbc99d-30b5-434a-9698-c2744c787594.ipynb
+t-fedb017a-711b-416b-96d6-caec36f1a4be.ipynb
