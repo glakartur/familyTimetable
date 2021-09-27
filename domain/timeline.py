@@ -7,6 +7,7 @@ class Timeline:
         self.fromTime = None
         self.toTime = None
         self.name = None
+        self.components = []
 
         if (text):
             self.parse(text)
@@ -28,6 +29,8 @@ class Timeline:
             self.toTime = text.strip()
             self.name = None
 
+    def addComponent(self, component):
+        self.components.append(component)
 
 
 if __name__ == "__main__":

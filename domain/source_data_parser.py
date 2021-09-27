@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-from domain.Timeline import Timeline
+from .timeline import Timeline
 
 class SourceDataParser:
     def __init__(self, fileName):
@@ -26,6 +26,18 @@ class SourceDataParser:
     def getPersons(self):
         return self.persons
 
+    def filterPersons(self, filter):
+        removePersons = []
+        for p in self.persons:
+            if (p in filter):
+                continue
+            removePersons.append(p)
+        for p in removePersons:
+            self.persons.remove(p)
+
+            for d in self.timetable:
+                self.timetable[d][p].clear()
+
     def printAll(self):
         print(self.days)
         print(self.persons)
@@ -49,14 +61,17 @@ class SourceDataParser:
         person = line[3:].strip()
         if person not in self.persons:
             self.persons.append(person)
-
         return person
 
     def _lookForTimeline(self, line):
         if line[0:2] != "* ":
             return None
-        
-        return line[2:]
+        return line[2:].strip()
+
+    def _lookForTimelineComponent(self, line):
+        if line[0:4] != "  - ":
+            return None
+        return line[4:].strip()
 
     def _findDays(self, data):
         days = []
@@ -68,7 +83,6 @@ class SourceDataParser:
             if day in days:
                 continue
             days.append(day)
-
         self.days = days
 
     def _findPersons(self, data):
@@ -116,22 +130,33 @@ class SourceDataParser:
                 currentDay = lineDay
                 currentPerson = None
                 self.timetable[currentDay] = {}
+                lastTimeline = None
                 continue
 
             linePerson = self._lookForPerson(line)
             if (linePerson):
                 currentPerson = linePerson
                 self.timetable[currentDay][currentPerson] = []
+                lastTimeline = None
                 continue
 
             lineTimeline = self._lookForTimeline(line)
             if (lineTimeline):
                 entry = Timeline(lineTimeline)
                 self.timetable[currentDay][currentPerson].append(entry)
+                lastTimeline = entry
+                continue
+
+            lineTimelineComponent = self._lookForTimelineComponent(line)
+            if (lineTimelineComponent and lastTimeline):
+                lastTimeline.addComponent(lineTimelineComponent)
+                continue
+
                 
             if (line.startswith("---")):
                 currentDay = None
                 currentPerson = None
+                lastTimeline = None
 
 
 if __name__ == "__main__":

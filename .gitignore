@@ -1,9 +1,7 @@
 domain/__pycache__/
 .vscode/launch.json
 .vscode/settings.json
-.ipynb_checkpoints/t-370a1431-7a1f-48d1-a8e8-4ccdd498954c-checkpoint.ipynb
-.ipynb_checkpoints/t-d3bbc99d-30b5-434a-9698-c2744c787594-checkpoint.ipynb
-.ipynb_checkpoints/t-fedb017a-711b-416b-96d6-caec36f1a4be-checkpoint.ipynb
-t-370a1431-7a1f-48d1-a8e8-4ccdd498954c.ipynb
-t-d3bbc99d-30b5-434a-9698-c2744c787594.ipynb
-t-fedb017a-711b-416b-96d6-caec36f1a4be.ipynb
+fonts/abel/*.pkl
+fonts/roboto/*.pkl
+fonts/sriracha/*.pkl
+fonts/ubuntu/*.pkl
